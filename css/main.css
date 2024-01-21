@@ -1,0 +1,1219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+
+/*configurações Gerais*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    font-size: 62.5%;
+}
+
+html {
+    font-size: 62.5%;
+    /* o que for maior do que esta dentro não vai ser mostrado*/
+    overflow-x: hidden;
+    /*aplica uma transição suave quando um evento de scroll é acionado programaticamente*/
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0a193d;
+    font-family: "Popping", sans-serif;
+}
+
+/*aplica estilos para partes do documento 
+que foram selecionadas pelo usuário*/
+::selection {
+    background: #fff;
+    color: #0a193d;
+}
+
+/*cabeçalho*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.7rem 10%;
+    height: 6.5rem;
+    background-color: #ac77cf;
+}
+
+header .logo {
+    font-size: 1.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #fff;
+}
+
+header .logo:hover {
+    color: #0a193d;
+}
+
+header .navbar ul {
+    list-style: none;
+    /* para deixar as opções uma ao lado da outra*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .navbar li {
+    margin-left: 2.5rem;
+    /*para dar espaço entre as opções*/
+}
+
+header .navbar ul li a {
+    font-size: 1.57rem;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.04rem;
+    transition: 0.2s;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+    color: #0a193d;
+    border-bottom: 0.2rem solid #0a193d;
+    padding: 0.5rem 0;
+}
+
+/* Estilizando o botão de menu (hamburguer), aparecer como expacilidade*/
+
+/*Icone do Menu*/
+#menu {
+    font-size: 3rem;
+    cursor: pointer;
+    color: rgb(24, 2, 63);
+    display: none;
+}
+
+/*Responsividade do Menu*/
+@media (max-width: 768px) {
+    #menu {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: 6.5rem;
+        right: -120%;
+        width: 75%;
+        height: 100%;
+        text-align: left;
+        align-items: flex-start;
+        background-color: #0a193d;
+    }
+
+    header .navbar ul {
+        /* Coloca o conteúdo em linha e não 
+        permite a quebra de linha.*/
+        flex-flow: column;
+        padding: 1rem;
+    }
+
+    header .navbar ul li {
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        width: 26rem;
+    }
+
+    header .navbar ul li a {
+        display: block;
+        padding: 1rem;
+        text-align: left;
+        color: #fff;
+        font-size: 2rem;
+    }
+
+
+    header .navbar ul li a.active,
+    header .navbar ul li a:hover {
+        padding: 1rem;
+        color: #fff;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #0a193d;
+    }
+
+    /*A classe nav-toggle é adicionada à ul superior com o JavaScript 
+  quando o usuário clica no ícone*/
+    header .navbar.nav-toggle {
+        right: 0;
+    }
+
+}
+
+/*Fim responsividade do cabeçalho*/
+
+section {
+    min-height: 100vh;
+    padding: 2rem 9%;
+}
+
+/*Estilizando a parte frontal*/
+.home {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.home .imagem img {
+    width: 45%;
+    margin-left: 0 6%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/*ajustando posição da imagem*/
+.home .imagem img:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.home .imagem img:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*para se adaptar ao espaço que tem no home*/
+.home .imagem {
+    flex: 1 1 40rem;
+    z-index: 1;
+}
+
+.home #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.home .conteudo {
+    /*A propriedade flex do CSS, define como um ítem será posicionado para no 
+    espaço disponível dentro de seu container.*/
+    flex: 1 1 4rem;
+    padding-top: 1rem;
+    z-index: 1;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.home .conteudo h2 {
+    margin-top: 4rem;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.home .conteudo h2 span {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #9dfbff;
+}
+
+.home .conteudo p {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+.home .conteudo p span {
+    font-size: 2.5rem;
+    color: #ac77cf;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+.home .btn {
+    margin-top: 1rem;
+    position: absolute;
+    line-height: 0;
+    padding: 1.6rem 3rem;
+    border-radius: 4em;
+    transition: 0.5s;
+    color: #fff;
+    background: #9dfbff;
+    /*box-shadow: 0px 5px 18px #9dfbff;*/
+    font-family: "Nunito", sans-serif;
+}
+
+.home .btn span {
+    font-weight: 200;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.home .btn i {
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.home .btn:hover {
+    background: #fff;
+    color: #ac77cf;
+}
+
+/*fazer alterações no elemento*/
+.home .btn:hover i {
+    transform: translateX(5px);
+}
+
+/*Mídias Sociais*/
+.sociais-icones {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+}
+
+.sociais .social-icones {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.sociais .social-icones li {
+    display: inline-block;
+    /*inline-block determina a largura*/
+    margin-bottom: 20px;
+}
+
+.sociais-icones a {
+    font-size: 2rem;
+    display: inline-block;
+    line-height: 44px;
+    color: #9dfbff;
+    background-color: #fff;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 100%;
+    /*webkit é para essa pagina web abrir em qualquer navegador (não são todos os navegadores que leem todos os pacotes do css*/
+    -webkit-transition: all 0.2s linear;
+    /*explore*/
+    -o-transition: all 0.2 linear;
+    /*opera*/
+    transition: all 0.2s linear;
+
+}
+
+.social-icones a:active,
+.social-icones a:focus,
+.social-icones a:hover {
+    color: #fff;
+    background-color: #0a193d;
+}
+
+.social-icones a.github:hover {
+    background-color: #0e0e0e;
+}
+
+.social-icones a.linkedin:hover {
+    background-color: #007bb6;
+}
+
+.social-icones a.instagram:hover {
+    background-color: #ee00da;
+}
+
+.social-icones a.Whatsapp:hover {
+    background-color: #008000;
+}
+
+/*Responsividade*/
+@media (max-width: 450px) {
+    .home .btn {
+        margin: 4rem 0;
+    }
+
+    .sociais {
+        margin-top: 12rem;
+    }
+
+    .home .imagem img {
+        margin-top: -3rem;
+
+    }
+
+    .home .conteudo p {
+        font-size: 2.2rem;
+    }
+
+    .home .conteudo p span {
+        font-size: 2.2rem;
+    }
+}
+
+/*sessão sobre*/
+
+.cabecalho {
+    font-size: 3.5rem;
+    color: black;
+    font-weight: 800;
+    text-align: center;
+}
+
+.cabecalho span {
+    color: #ee00da;
+    font-size: 3.5rem;
+}
+
+.sobre {
+    background: linear-gradient(#fff, #edd2e7);
+}
+
+.sobre .linha {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    /* espaço entre os elementos*/
+    flex-wrap: wrap;
+    padding: 4rem;
+}
+
+.sobre .linha .imagem {
+    text-align: center;
+    flex: 1 1 35rem;
+}
+
+.sobre .linha .imagem img {
+    margin: 4rem;
+    width: 30rem;
+    height: auto;
+    border-radius: 5%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    mix-blend-mode: luminosity;
+    /*deixa a imagem preto e branco*/
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sobre .linha .imagem img:hover {
+    mix-blend-mode: normal;
+}
+
+.sobre .linha .conteudo {
+    flex: 1 1 45rem;
+    padding: 3rem;
+}
+
+.sobre .linha .conteudo h3 {
+    color: rgb(27, 27, 27);
+    font-size: 2.5rem;
+}
+
+.sobre .linha .conteudo .tag {
+    font-size: 1.4rem;
+    color: #020133;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.sobre .linha .conteudo p {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    font-family: "Nunito";
+    font-weight: 600;
+    text-transform: none;
+}
+
+.sobre .linha .conteudo .caixa-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-family: "Nunito";
+    font-weight: 600;
+}
+
+.sobre .linha .conteudo .caixa-conteudo .caixa p {
+    text-transform: none;
+}
+
+.sobre .linha .conteudo .caixa-conteudo .caixa p span {
+    color: #011aff;
+}
+
+.resumebtn {
+    margin-top: 6rem;
+}
+
+.resumebtn .btn {
+    font-family: "Nunito", sans-serif;
+    padding: 1.7rem 3rem;
+    border-radius: 0.5em;
+    transition: 0.3s;
+    color: #fff;
+    background: #ee00da;
+    box-shadow: 0px 5px 10px #ac77cf
+}
+
+.resumebtn .btn span {
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+}
+
+.resumebtn .btn i {
+    margin-left: 0.3rem;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.resumebtn .btn:hover {
+    background: #1a047e;
+}
+
+.resumebtn .btn:hover i {
+    transform: translateX(5px);
+}
+
+/* responsividade*/
+@media screen and (max-width: 600px) {
+    .sobre .linha .imagem {
+        margin-top: 2rem;
+    }
+
+    .sobre .linha .imagem img {
+        margin: 0 auto;
+        width: 80%;
+        mix-blend-mode: normal;
+    }
+
+    .sobre .linha {
+        padding: 0.5rem;
+        margin-bottom: 7rem;
+    }
+
+    .sobre .linha .conteudo {
+        padding: 1rem;
+    }
+
+    .sobre .linha .conteudo .caixa-conteudo {
+        gap: 0;
+    }
+}
+
+/*Habilidade e Conhecimentos*/
+.habilidades {
+    min-height: 10vh;
+    background-color: #fff;
+    /*background: linear-gradient(to bottom, #fef9fd, #dce9e9); (tag para mesclar cor*/
+}
+
+.habilidades .imagem img {
+    width: 98%;
+    margin-left: 0 6%;
+}
+
+/* responsividade skills/conhecimento*/
+@media screen and (max-width: 700px) {
+    .cabecalho {
+        font-size: 2rem;
+    }
+
+    .habilidades .conteudo {
+        flex-wrap: wrap;
+        /*quando chega no espaçamento total da tela ele joga para baixo*/
+        padding: 0;
+        margin: 0;
+    }
+
+    .habilidades .conteudo .linha {
+        display: grid;
+        margin: 1rem;
+        padding: 2rem 0.2rem 2rem 0.2rem;
+        gap: 1rem;
+    }
+}
+
+/*Formações*/
+
+.formacoes {
+    background: #e5ecfb;
+    min-height: 80vh;
+}
+
+.formacoes .textoformacao {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.formacoes .caixa-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formacoes .caixa-conteudo .caixa {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    margin-top: 2rem;
+    overflow: hidden;
+    /*não mostrar conteudo caso ele sobre*/
+    transition: 0.3s;
+    background: rgb(252, 252, 252);
+}
+
+.formacoes .caixa-conteudo .caixa:hover {
+    transform: scale(1.03);
+    /*ir um pouco para frente ao passar o mouse*/
+    box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
+}
+
+.formacoes .caixa-conteudo .caixa .imagem {
+    flex: 1 1 20rem;
+    width: 100%;
+}
+
+.formacoes .caixa-conteudo .caixa img {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.formacoes .caixa-conteudo .caixa .conteudo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex-wrap: wrap;
+    flex: 1 1 70rem;
+    /*se adaptar ao espaço*/
+}
+
+.formacoes .caixa-conteudo .caixa .conteudo h3 {
+    font-size: 2.5rem;
+    color: #012970;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.formacoes .caixa-conteudo .caixa .conteudo p {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.formacoes h4 {
+    font-size: 1rem;
+    color: rgb(34, 109, 0);
+    text-align: left;
+    margin: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+}
+
+/*responsividade das formações*/
+
+@media screen and (max-width: 600px) {
+    .formacoes .caixa-conteudo .caixa {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .formacoes .caixa-conteudo .caixa .imagem {
+        width: 100%;
+        height: 25rem;
+    }
+
+    .formacoes .caixa-conteudo .caixa img {
+        width: 100%;
+    }
+
+    .formacoes .caixa-conteudo .caixa .conteudo {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        flex-wrap: wrap;
+        flex: 0;
+    }
+}
+
+/*Experiências*/
+.experiencias .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experiencias .timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background: #ac77cf;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -2;
+}
+
+.experiencias .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/*circulos da timeline*/
+.experiencias .container::after {
+    content: "\f0b1";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid #ac77cf;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 100;
+    font-size: 1.89rem;
+    text-align: center;
+    font-weight: 600;
+    color: #02094b;
+    font-family: "Font Awesome\ 5 Free";
+}
+
+.experiencias .esquerdo {
+    left: 0;
+}
+
+.experiencias .direito {
+    left: 50%;
+}
+
+/* arrows pointing right */
+.experiencias .esquerdo::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid #ac77cf;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #ac77cf;
+}
+
+/* arrows pointing left  */
+.experiencias .direito::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid #ac77cf;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #ac77cf transparent transparent;
+}
+
+.experiencias .direito::after {
+    left: -16px;
+}
+
+.experiencias .conteudo {
+    background-color: #ac77cf;
+    position: relative;
+    border-radius: 6px;
+}
+
+.experiencias .conteudo .tag {
+    font-size: 1.3rem;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.experiencias .conteudo .desc {
+    margin-left: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.experiencias .conteudo .desc h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.experiencias .conteudo .desc p {
+    font-size: 1.2rem;
+}
+
+.experiencias .cabecalho i {
+    color: #fff;
+}
+
+.experiencias .cabecalho {
+    color: #fff;
+}
+
+/* view all button */
+.maisbtn {
+    display: flex;
+    justify-content: center;
+}
+
+.maisbtn .btn {
+    position: relative;
+    line-height: 0;
+    padding: 1.6rem 3rem;
+    border-radius: 0.5em;
+    transition: 0.5s;
+    color: #fff;
+    background: #2506ad;
+    box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
+    text-align: center;
+}
+
+.maisbtn .btn span {
+    font-weight: 600;
+    font-size: 1.7rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.maisbtn .btn i {
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.maisbtn .btn:hover {
+    background: #1a047e;
+}
+
+.maisbtn .btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Media queries - Responsividade da time line */
+@media screen and (max-width: 600px) {
+    .experiencias {
+        min-height: 80vh;
+    }
+
+    .experiencias .timeline {
+        margin-top: 2rem;
+    }
+
+    .experiencias .timeline::after {
+        left: 31px;
+    }
+
+    .experiencias .container {
+        width: 100%;
+        padding-left: 8rem;
+        padding-right: 2rem;
+    }
+
+    .experiencias .container::after {
+        font-size: 2.2rem;
+    }
+
+    .experiencias .container::before {
+        left: 61px;
+        border: medium solid #ac77cf;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #ac77cf transparent transparent;
+    }
+
+    .experiencias .esuquerdo::after {
+        left: 15px;
+    }
+
+    .experiencias .direito::after {
+        left: 15px;
+    }
+
+    .experiencias .direito {
+        left: 0%;
+    }
+
+    .maisbtn {
+        margin-top: 3rem;
+    }
+}
+
+/*Sessão Contatos*/
+.contatos {
+    background: #e5ecfb;
+    min-height: 60vh;
+  }
+  
+  .contatos .container {
+    max-width: 1050px;
+    width: 100%;
+    background: #fff;
+    border-radius: 1.5rem;
+    margin: 2rem 5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contatos .container .conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+  }
+  
+  .contatos .conteudo .caixa-imagem {
+    max-width: 60%;
+    margin-left: 4rem;
+  }
+  
+  .contatos .conteudo .caixa-imagem img {
+    width: 100%;
+    height: 40rem;
+    position: relative;
+  }
+  
+  .contatos .conteudo form {
+    width: 45%;
+    margin-right: 3.5rem;
+  }
+  
+  form .form-grupo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .form-grupo .campo {
+    height: 50px;
+    display: flex;
+    position: relative;
+    margin: 1rem;
+    width: 100%;
+  }
+  
+  form i {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    color: rgb(51, 51, 51);
+    font-size: 17px;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+  
+  form .campo input,
+  form .mensagem textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 16px 0 48px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 5px;
+    border: 1px solid rgb(51, 51, 51);
+    background: #e5ecfb;
+  }
+  
+  .campo input::placeholder,
+  .mensagem textarea::placeholder {
+    color: rgb(51, 51, 51);
+  }
+  
+  .campo input:focus,
+  .mensagem textarea:focus {
+    padding-left: 47px;
+    border: 2px solid rgb(115, 3, 167);
+  }
+  
+  .campo input:focus~i,
+  .mensagem textarea:focus~i {
+    color: rgb(115, 3, 167);
+  }
+  
+  form .mensagem {
+    position: relative;
+    margin: 1rem;
+    width: 100%;
+  }
+  
+  form .mensagem i {
+    top: 25px;
+    font-size: 20px;
+    left: 15px;
+  }
+  
+  form .mensagem textarea {
+    min-height: 130px;
+    max-height: 230px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 12px 20px 0 48px;
+  }
+  
+  form .mensagem textarea::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  form .button-area {
+    display: flex;
+    float: right;
+    flex-direction: row-reverse;
+  }
+  
+  .botao-area button {
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 13px 25px;
+    background: #2506ad;
+    box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
+    transition: 0.3s ease;
+    font-family: "Nunito", sans-serif;
+  }
+  
+  .botao-area button:hover {
+    background: #421cecf5;
+  }
+  
+  .botao-area span {
+    font-size: 17px;
+    padding: 1rem;
+    display: none;
+  }
+  
+  .botao-area button i {
+    position: relative;
+    top: 6px;
+    left: 2px;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    color: #fff;
+  }
+  
+  .botao-area button:hover i {
+    left: 8px;
+  }
+  
+  /* contact section media queries starts */
+  @media (max-width: 900px) {
+    .contatos {
+      min-height: 70vh;
+    }
+  
+    .contatos .container {
+      margin: 3rem 0 2rem 0;
+    }
+  
+    .contatos .container .conteudo {
+      padding: 18px 12px;
+    }
+  
+    .contatos .conteudo .caixa-imagem {
+      display: none;
+    }
+  
+    .contatos .conteudo form {
+      width: 100%;
+      margin-right: 2rem;
+    }
+  }
+
+  /*Rodapé da página*/
+
+  .rodape {
+    min-height: auto;
+    padding-top: 0;
+    background: rgb(0, 1, 43);
+  }
+  
+  .rodape .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .rodape .box-container .caixa {
+    flex: 1 1 25rem;
+    margin: 2.5rem;
+  }
+  
+  .rodape .box-container .caixa h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    padding-bottom: 1rem;
+    font-weight: normal;
+  }
+
+  .rodape .box-container .caixa p {
+    font-size: 1rem;
+    color: #fff;
+    padding: 0.7rem 0;
+    text-transform: none;
+  }
+  
+  .rodape .box-container .caixa p i {
+    padding-right: 1rem;
+    color: #9dfbff;
+  }
+  
+  .rodape .box-container .caixa a {
+    font-size: 1.5rem;
+    color: rgb(238, 238, 238);
+    padding: 0.3rem 0;
+    display: block;
+  }
+  
+  .rodape .box-container .caixa a:hover {
+    color: #9dfbff;
+  }
+
+  .rodape .box-container .caixa .share {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+  }
+  
+  .rodape .box-container .caixa .share a {
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5rem;
+    font-size: 1.7rem;
+    margin-right: 1rem;
+    transition: 0.2s;
+    background: rgb(230, 230, 230);
+    color: #02094b;
+    border: none;
+  }
+  
+  .rodape .box-container .caixa .share a:hover {
+    background: transparent;
+    transform: scale(0.98);
+    border: 0.1rem solid #9dfbff;
+    color: #9dfbff;
+  }
+
+  .rodape .credit {
+    padding: 1rem 0 0 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #fff;
+    border-top: 0.1rem solid #fff3;
+  }
+  
+  .rodape .credit a {
+    color: #007bb6;
+  }
+  
+  .rodape .fa {
+    color: #e90606;
+    margin: 0 0.3rem;
+    font-size: 1.5rem;
+    animation: animacao 0.35s infinite alternate;
+  }
+
+  @-webkit-keyframes animacao {
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes animacao {
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .rodape .box-container .caixa {
+      margin: 1.5rem;
+    }
+  
+    .rodape .box-container .caixa p {
+      padding: 0.7rem;
+    }
+  
+    .rodape .box-container .caixa .share a {
+      padding: 1.2rem;
+    }
+  }
+  
+  /*responsividade da página total*/
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  
+    body {
+      padding-right: 0;
+    }
+  
+    section {
+      padding: 2rem;
+    }
+  }
+  
+  /* common media queries ends*/
+  
+  /* scroll top starts */
+  #scroll-top {
+    position: fixed;
+    top: -140%;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    background: #ac77cf;
+    color: rgb(13, 0, 44);
+    border-radius: 50%;
+    transition: 1s linear;
+    z-index: 1000;
+  }
+  
+  /*Quando o botão está ativo, ele desce */
+  #scroll-top.active {
+    top: calc(100% - 12rem);
+  }
+  
+  /* scroll top ends */
+  
